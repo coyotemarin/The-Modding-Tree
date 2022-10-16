@@ -1,6 +1,6 @@
 let modInfo = {
 	name: "The Matter Tree",
-	id: "mymod",
+	id: "catyme",
 	author: "CatyIceCream",
 	pointsName: "quarks",
 	modFiles: ["layers.js", "tree.js"],
