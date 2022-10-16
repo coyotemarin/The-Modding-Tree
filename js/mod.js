@@ -42,7 +42,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1/(player.points+0.01))
+	let gain = new Decimal(1/(player.points+1))
 	return gain
 }
 
