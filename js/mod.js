@@ -42,13 +42,8 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	if(player.points>1)
-		let gain = new Decimal(1/player.points)
-		return gain
-	
-	if(player.points<=1)
-		let gain = new Decimal(1)
-		return gain
+	let gain = new Decimal(1/(player.points+0.01))
+	return gain
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
