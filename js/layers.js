@@ -24,5 +24,28 @@ addLayer("m", {
     hotkeys: [
         {key: "m", description: "M: Reset for matter", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    buyables: { 
+    rows: 1, // # of rows 
+    cols: 1, // # of columns 
+    11: { 
+        cost(x) { 
+            return new Decimal(1).mul(x || getBuyableAmt(this.layer, this.id)) 
+        },
+        display() { 
+            return "Nucleus" 
+        },
+        canAfford() { 
+            return player[this.layer].points.gte(this.cost()) 
+        },
+        buy() {
+            player[this.layer].points = player[this.layer].points.sub(this.cost())
+            setBuyableAmount(this.layer, this.id, getBuyableAmt(this.layer, this.id).add(1))
+        },
+        // etc... 
+    }, 
+    // etc... 
+}
+
     layerShown(){return true}
 })
+
