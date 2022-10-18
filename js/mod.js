@@ -56,7 +56,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return `Your quarks are divided by ${(player.points ** 1.02).toFixed(4)} from quarks`},
+   function () { return `Your quarks are divided by ${(player.points ** 1.02).toFixed(2)} from quarks`},
 ]
 
 // Determines when the game "ends"
