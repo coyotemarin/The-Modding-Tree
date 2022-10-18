@@ -55,7 +55,7 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = ['Your quarks divde their own gain above 1'
+var displayThings = ['Your quarks are being divided by {player.quarks}'
 ]
 
 // Determines when the game "ends"
