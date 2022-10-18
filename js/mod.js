@@ -45,7 +45,7 @@ function getPointGen() {
 	// make Decimal(1) happen if player.points <= 1, make Decimal(1/player.points) happen if player.points > 1
 
 	//let gain = new Decimal(1/(player.points+1))
-	let gain = new Decimal(player.points <= 1 ? 1 : 1/(player.points ** 1.44))
+	let gain = new Decimal(player.points <= 1 ? 1 : 1/(player.points ** 1.5))
 
 	return gain
 }
@@ -55,7 +55,7 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = ['Your quarks are divided by quarks to the power of 1.44'
+var displayThings = ['Your quarks are divided by quarks to the power of 1.5'
 ]
 
 // Determines when the game "ends"
