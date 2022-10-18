@@ -55,7 +55,7 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [`Your quarks are being divided by ${player.points}`
+var displayThings = ['Your quarks are being divided by ${player.points}'
 ]
 
 // Determines when the game "ends"
