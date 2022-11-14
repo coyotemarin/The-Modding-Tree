@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Matter Tree",
+	name: "The Ice Cream Tree",
 	id: "catyme",
 	author: "CatyIceCream",
-	pointsName: "quarks",
+	pointsName: "coldness",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Vacuum of space",
+	num: "0.1",
+	name: "The air begins to freeze",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+		- Added coldness. Max coldness is currently 33.33<br>
+		- Added ice layer.`
 
 let winText = `You won! Come back next update!`
 
@@ -45,7 +45,7 @@ function getPointGen() {
 	// make Decimal(1) happen if player.points <= 1, make Decimal(1/player.points) happen if player.points > 1
 
 	//let gain = new Decimal(1/(player.points+1))
-	let gain = new Decimal(player.points <= 1 ? 1 : 1/(player.points ** 1.02))
+	let gain = new Decimal(player.points <= 1 ? 1 : 1-(player.points*(player.points/1111.11111111)))
 
 	return gain
 }
@@ -56,7 +56,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return `Your quarks are divided by ${(player.points ** 1.02).toFixed(2)} from quarks`},
+   function () { return `Your heat loss is reduced by ${(player.points/11.1111111111).toFixed(2)}% of your coldness. (${(player.points*(player.points/11.1111111111)).toFixed(2)}%)`},
 ]
 
 // Determines when the game "ends"
