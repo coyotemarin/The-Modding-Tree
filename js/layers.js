@@ -24,7 +24,12 @@ addLayer("i", {
     hotkeys: [
         {key: "I", description: "I: Reset for ice", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-
-    layerShown(){return true}
+    upgrades: {
+    11: {
+        description: "Add one to the base heat loss",
+        cost: new Decimal(1),
+        unlocked () { return new Decimal(1) }
+    }
+}
 })
 
