@@ -18,7 +18,7 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
+	<h3>v0.1</h3><br>
 		- Added coldness. Max coldness is currently 33.33<br>
 		- Added ice layer.`
 
