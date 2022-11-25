@@ -45,7 +45,7 @@ function getPointGen() {
 	// make Decimal(1) happen if player.points <= 1, make Decimal(1/player.points) happen if player.points > 1
 
 	//let gain = new Decimal(1/(player.points+1))
-	let gain = new Decimal(player.points <= 1 ? 1 : 1-(player.points*(player.points/1111.11111111)))
+	let gain = new Decimal(player.points < 10 ? 0.43 : 0.43+(player.points/500))
 
 	return gain
 }
@@ -56,7 +56,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return `Your heat loss is reduced by ${(player.points/11.1111111111).toFixed(2)}% of your coldness. (${(player.points*(player.points/11.1111111111)).toFixed(2)}%)`},
+   function () { return `${(player.points/5 - 0.43).toFixed(2)}% of your gain is from your intrest. (${(player.points/500).toFixed(2)})`},
 ]
 
 // Determines when the game "ends"
