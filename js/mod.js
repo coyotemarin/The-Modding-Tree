@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Ice Cream Tree",
 	id: "catyme",
 	author: "CatyIceCream",
-	pointsName: "coldness",
+	pointsName: "funds",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
