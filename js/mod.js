@@ -13,11 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
+	num: "0.1*",
 	name: "The air begins to freeze",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.1*</h3><br>
+		- Midway between v0.1 and v0.2<br>
 	<h3>v0.1</h3><br>
 		- Added coldness. Max coldness is currently 33.33<br>
 		- Added ice layer.`
