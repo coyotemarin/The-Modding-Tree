@@ -13,13 +13,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1*",
-	name: "The air begins to freeze",
+	num: "0.2",
+	name: "Ingredients + Funds",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1*</h3><br>
-		- Midway between v0.1 and v0.2<br>
+	<h3>v0.2</h3><br>
+		- Replaced coldness with funds (basic points)
+			-Fund increase their gain by a small amount based off itself, but slows down and becomes too small to matter
+		-Added a ingredient layer between basic points and ice
+		-Added placeholder upgrades that don't do anything in each layer, and will be replaced with buyables<br>
 	<h3>v0.1</h3><br>
 		- Added coldness. Max coldness is currently 33.33<br>
 		- Added ice layer.`
@@ -47,8 +50,7 @@ function getPointGen() {
 	// make Decimal(1) happen if player.points <= 1, make Decimal(1/player.points) happen if player.points > 1
 
 	//let gain = new Decimal(1/(player.points+1))
-	let gain = new Decimal(player.points < 10 ? 0.43 : 0.43+(player.points/500))
-
+	let gain = new Decimal(player.points <= 0 ? 0.43 : 0.43+Math.log(1.29**(player.points**0.43)))
 	return gain
 }
 
@@ -58,7 +60,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return `${(player.points/5 - 0.43).toFixed(2)}% of your gain is from your intrest. (${(player.points/500).toFixed(2)})`},
+   function () { return ` `},
 ]
 
 // Determines when the game "ends"
