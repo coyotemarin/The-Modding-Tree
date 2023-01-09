@@ -7,7 +7,7 @@ addLayer("in", {
         points: new Decimal(0),
     }},
     color: "#C68958",
-    requires: new Decimal(2000000), // Can be a function that takes requirement increases into account
+    requires: new Decimal(2), // Can be a function that takes requirement increases into account
     resource: "ingredients", // Name of prestige currency
     baseResource: "funds", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -27,8 +27,17 @@ addLayer("in", {
     upgrades: {
         11: {
             description: "<h3>Investment</h3><br> +2% funds/s",
-            cost: new Decimal(1),
-            unlocked () { return new Decimal(1) },
+            fullDisplay () {
+                return this.description + '<br><br>costs 5 points'
+            },
+            canAfford () {
+                return player.points.gte(5)
+            },
+            pay () {
+                player.points = player.points.sub(5)
+            },
+            //cost: new Decimal(1),
+            //unlocked () { return new Decimal(1) },
         },
     },
     branches: ["i"]
@@ -45,7 +54,7 @@ addLayer("i", {
     requires: new Decimal(30), // Can be a function that takes requirement increases into account
     resource: "ice", // Name of prestige currency
     baseResource: "ingredients", // Name of resource prestige is based on
-    baseAmount() {console.log(player); return player.in.points}, // Get the current amount of baseResource
+    baseAmount() {return player.in.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -62,17 +71,14 @@ addLayer("i", {
     upgrades: {
     11: {
         description: "Add one to the base heat loss -- not functional",
-        cost: new Decimal(1),
-        /*
+        //cost: new Decimal(1),
         canAfford () {
             return player.points.gte(100)
         }, 
         pay () {
             player.points = player.points.sub(100)
         },
-        */
-
-        unlocked () { return new Decimal(1) }
+        //unlocked () { return new Decimal(1) }
     }
 }
 })
