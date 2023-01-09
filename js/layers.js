@@ -25,11 +25,11 @@ addLayer("in", {
         {key: "N", description: "N: Reset for ingredients", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     upgrades: {
-    11: {
-        description: "-- not functional",
-        cost: new Decimal(1),
-        unlocked () { return new Decimal(1) }
-        }
+        11: {
+            description: "<h3>Investment</h3><br> +2% funds/s",
+            cost: new Decimal(1),
+            unlocked () { return new Decimal(1) },
+        },
     },
     branches: ["i"]
 })
@@ -63,6 +63,15 @@ addLayer("i", {
     11: {
         description: "Add one to the base heat loss -- not functional",
         cost: new Decimal(1),
+        /*
+        canAfford () {
+            return player.points.gte(100)
+        }, 
+        pay () {
+            player.points = player.points.sub(100)
+        },
+        */
+
         unlocked () { return new Decimal(1) }
     }
 }
