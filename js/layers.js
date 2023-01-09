@@ -26,15 +26,22 @@ addLayer("in", {
     ],
     upgrades: {
         11: {
-            description: "<h3>Investment</h3><br> +2% funds/s",
+            description: "<h3>Investment</h3><br> +2% funds/s (not yet working)",
             fullDisplay () {
-                return this.description + '<br><br>costs 5 points'
+                let desc = this.description
+                if (!hasUpgrade(this.layer, this.id)) {
+                    desc +=`<br><br>costs ${this.costInPoints()} funds`
+                }
+                return desc
+            },
+            costInPoints () {
+                return player.points.div(2).add(10).ceil()
             },
             canAfford () {
-                return player.points.gte(5)
+                return player.points.gte(this.costInPoints())
             },
             pay () {
-                player.points = player.points.sub(5)
+                player.points = player.points.sub(this.costInPoints())
             },
             //cost: new Decimal(1),
             //unlocked () { return new Decimal(1) },
